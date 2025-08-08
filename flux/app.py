@@ -17,6 +17,7 @@ async def index():
     
 @app.get("/api/battery")
 async def get_battery():
+    global data
     """
     Endpoint to retrieve battery data.
     Returns the global battery data dictionary.
@@ -25,6 +26,7 @@ async def get_battery():
     
 @app.get("/api/location")
 async def get_location():
+    global data
     """
     Endpoint to retrieve location data.
     Returns the global location data dictionary.
@@ -46,6 +48,7 @@ async def get_all_data():
     Endpoint to retrieve all data.
     Returns both battery and location data.
     """
+    global data
     return {
         "battery": data["battery"],
         "location": data["location"]
@@ -60,6 +63,7 @@ async def locate(
     Endpoint to handle location data.
     Accepts either a JSON object or a string.
     """
+    global data
     data = req_data
     
     if isinstance(data, str):
