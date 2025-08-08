@@ -1,0 +1,26 @@
+[project]
+name = "flux"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi[standard]>=0.116.1",
+]
+
+[project.scripts]
+flux = "flux.__main__:start"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = ["pre-commit>=4.1.0"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+[tool.hatch.envs.default]
+path = "./.venv/"
